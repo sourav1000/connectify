@@ -1,0 +1,44 @@
+<!-- <html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+
+    </head>
+    <body> -->
+        <h1>codial</h1>
+    <!-- </body>
+</html> -->
+
+<section id="feed-posts">
+    <h4>
+        Posts
+    </h4>
+    <% if(locals.user){%>
+    <form action="/post/create" id="new-post-form" method="post">
+        <textarea name="content" id="" cols="30" rows="10" placeholder="Type here"></textarea>
+        <input type="submit" value="POST">
+    </form>
+      
+
+    <div id="posts-list-container">
+        <ul>
+            <%for(post of posts){%>
+
+                <%- include('_post') -%>
+                
+                <%}%>
+        </ul>
+    </div>
+    <%}%> 
+</section>
+
+<section id="user-friends">
+    <h4>User Friends</h4>
+    <% for(u of all_users){%>
+        <p>
+            <a href="users/profile/<%=u.id%>"><%=u.name%></a>
+        </p>
+        <%}%>
+</section>
+
